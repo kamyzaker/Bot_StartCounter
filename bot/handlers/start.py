@@ -18,5 +18,3 @@ async def cmd_start(message: Message, state: FSMContext):
         text = f"Количество нажатий /start: {occurrence}. Давай ещё!"
     await message.answer(text)
     await state.update_data(occurrence=occurrence + 1)
-
-# текст
