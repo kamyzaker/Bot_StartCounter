@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+    bot:
+        image: "kamyzaker/test-docker-push:latest"
+        restart: "unless-stopped"
+        environment:
+            - BOT_TOKEN=7885876439:AAGy_2YlXaXxwErpkX3s1t4he2i2I8JmCoU
+            - REDIS_DSN=redis://redis_fsm
+        # альтернативный вариант (выберите что-то одно):
+        # env_file: ".env"
+
+    redis_fsm:
+        image: "redis:7"
+        restart: "unless-stopped"
+        healthcheck:
+            test: [ "CMD", "redis-cli","ping" ]
